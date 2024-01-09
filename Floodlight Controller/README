@@ -1,3 +1,10 @@
+$sudo apt-get install openjdk-8-jdk
 Download Floodlight controller from this link https://drive.google.com/file/d/1j6aFv6msgdKmPrnMm-cOEO055BtKOPEi/view?usp=sharing
-you can run ./floodlight.sh to start the controller
+you can run
+$cd floodlight
+$git submodule init
+$git submodule update
+$ant
+to check if it build successfully
+then run $ ./floodlight.sh to start the controller
 after that run ./flow.sh to add flow rules continously based on ModSecurity Alerts
