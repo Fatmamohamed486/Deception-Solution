@@ -14,7 +14,8 @@ sudo apt install openvswitch-switch
 sudo ovs-vswitchd
 
 sudo ovs-vsctl add-br br0
-sudo ovs-vsctl set-controller br0 tcp:192.168.100.40:6633                   #set the floodlight controller to the switch
+#set the floodlight controller to the switch
+sudo ovs-vsctl set-controller br0 tcp:192.168.100.40:6633                   
 sudo ovs-vsctl set bridge br0 protocols=OpenFlow10
 
 sudo ifconfig br0 up
