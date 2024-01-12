@@ -1,0 +1,98 @@
+Artillery[INFO]: Running auto update (git pull)
+Artillery[WARN]: ********************************** The following changes were detected at 2024-01-12 14:03:11.922402 **********************************
+b'302c302\n< /etc/mtab:ac619c6f95878575b55def0caf5c344d92d4f855f8877211d53e90cd5217220d9664c2ffbe1218f138fd20f0acafca9e7af0c86a1ff89634eeb1629e85d2d8d1\n---\n> /etc/mtab:0e9486597bc0ec96d1f7a136e25cd1783c3a75fcf14447d6a0b80fa2034a0cf204d05d6cbb09acf3bb56d35de502e6800d24e1809ca2d6bec26b508d3d9fc8e9\n1052c1052\n< /etc/cups/subscriptions.conf:4078cdf439a654cf04ef68ea1061150f259e8465886625e10b26d1b61431a46081aca658dc888e39b3453828934a07ab7a2ff0bfdf2ccb654cf6f0ce28cafe1f\n---\n> /etc/cups/subscriptions.conf:427c22ee9c2adc680c66e2d89ed79a0d648ce41def4dd19b29a80405c0809c3d10a7f5517a88afd1d0aa80e8017769690bd7f67d734f701ee098acb6d4120929\n1054c1054\n< /etc/cups/subscriptions.conf.O:d01be40022d3e40e5c2df865aa03bb932f3f5fa4eceaaed4f91e290fce9cb882f82b8bb70a9d10282fe6d3f30f3bb92035b2885590c4e2b2afedf5228675764c\n---\n> /etc/cups/subscriptions.conf.O:717472092c0e833ad64a9f95437a8329d5e65b484bfcac77659e74735e9c4ff173c25c6bbe9a7c3805579342824f0794fc8a0e28249e743b712f1a363d733ed3\n'
+********************************** End of changes. **********************************
+
+
+Artillery[INFO]: Output 'git pull':
+Already up to date.
+
+
+Artillery[INFO]: Read 12 lines in '/var/artillery/banlist.txt'
+Artillery[INFO]: Set up listener for tcp port 22
+Artillery[INFO]: Set up listener for tcp port 1433
+Artillery[INFO]: Set up listener for tcp port 8080
+Artillery[INFO]: Set up listener for tcp port 21
+Artillery[INFO]: Set up listener for tcp port 5060
+Artillery[INFO]: Set up listener for tcp port 5061
+Artillery[INFO]: Set up listener for tcp port 5900
+Artillery[INFO]: Set up listener for tcp port 25
+Artillery[INFO]: Set up listener for tcp port 53
+Artillery[INFO]: Set up listener for tcp port 110
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 1433
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 8080
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 21
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 5060
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 5061
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 25
+Artillery[INFO]: Set up listener for tcp port 1723
+Artillery[INFO]: Set up listener for tcp port 1337
+Artillery[INFO]: Set up listener for tcp port 10000
+Artillery[INFO]: Set up listener for tcp port 5800
+Artillery[INFO]: Set up listener for tcp port 44443
+Artillery[INFO]: Set up listener for tcp port 16993
+Artillery[INFO]: Set up listener for tcp port 80
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 1337
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 5900
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 5800
+Artillery[INFO]: Set up listener for udp port 123
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 1723
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 110
+Artillery[INFO]: Set up listener for udp port 53
+Artillery[INFO]: Set up listener for udp port 5060
+Artillery[INFO]: Set up listener for udp port 5061
+Artillery[INFO]: Set up listener for udp port 3478
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 10000
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 44443
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 80
+Artillery[INFO]: Created iptables rule to accept incoming connection to udp 123
+Artillery[INFO]: Created iptables rule to accept incoming connection to tcp 16993
+Artillery[INFO]: Created iptables rule to accept incoming connection to udp 3478
+Artillery[INFO]: Created iptables rule to accept incoming connection to udp 5060
+Artillery[INFO]: Created iptables rule to accept incoming connection to udp 5061
+Artillery[WARN]: [!] Insecure configuration detected on filesystem: [!] Issue identified: /etc/ssh/sshd_config. SSH is running on the default port 22. An attacker commonly scans for these type of ports. Recommendation: Change the port to something high that doesn't get picked up by typical port scanners.
+
+
+[!] Issue identified: Password authentication enabled. An attacker may be able to brute force weak passwords.
+
+
+Issue identified: /var/www/html/DVWA/config/config.inc.php.bak permissions are not set to root. If an attacker compromises the system and is running under the Apache user account, could view these files. Recommendation: Change the permission of /var/www/html/DVWA/config/config.inc.php.bak to root:root. Command: chown root:root /var/www/html/DVWA/config/config.inc.php.bak
+
+
+Artillery[INFO]: Grabbing feed from 'https://www.binarydefense.com/banlist.txt'
+Artillery[INFO]: Artillery is up and running
+Artillery[ERROR]: Artillery was unable to bind to TCP port 22. This could be due to an active port in use.
+project | 2024-01-12 14:03:13 | Artillery error - unable to bind to TCP port 22
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:15 | Artillery error - unable to bind to TCP port 22
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:17 | Artillery error - unable to bind to TCP port 22
+[Errno 98] Address already in use
+
+Artillery[ERROR]: Artillery was unable to bind to TCP port 53. This could be due to an active port in use.
+project | 2024-01-12 14:03:13 | Artillery error - unable to bind to TCP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:15 | Artillery error - unable to bind to TCP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:17 | Artillery error - unable to bind to TCP port 53
+[Errno 98] Address already in use
+
+Artillery[ERROR]: project | 2024-01-12 14:03:13 | Artillery error - unable to bind to UDP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:15 | Artillery error - unable to bind to UDP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:17 | Artillery error - unable to bind to UDP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:19 | Artillery error - unable to bind to UDP port 53
+[Errno 98] Address already in use
+project | 2024-01-12 14:03:21 | Artillery error - unable to bind to UDP port 53
+[Errno 98] Address already in use
+
+Artillery[INFO]: Honeypot detected incoming connection from 192.168.100.30 to port 80
+Artillery[WARN]: 2024-01-12 14:03:53.439780 Artillery has detected an attack from 192.168.100.30 for a connection on a honeypot port 80
+Artillery[INFO]: Honeypot detected incoming connection from 192.168.100.30 to port 80
+Artillery[WARN]: 2024-01-12 14:03:54.643953 Artillery has detected an attack from 192.168.100.30 for a connection on a honeypot port 80
+Artillery[INFO]: Honeypot detected incoming connection from 192.168.100.30 to port 80
+Artillery[WARN]: 2024-01-12 14:03:55.944056 Artillery has detected an attack from 192.168.100.30 for a connection on a honeypot port 80
+Artillery[INFO]: Honeypot detected incoming connection from 192.168.100.30 to port 80
+Artillery[WARN]: 2024-01-12 14:03:57.247764 Artillery has detected an attack from 192.168.100.30 for a connection on a honeypot port 80
