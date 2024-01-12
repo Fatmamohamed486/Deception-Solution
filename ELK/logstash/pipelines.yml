@@ -1,0 +1,38 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+
+#- pipeline.id: main
+#  path.config: "/etc/logstash/conf.d/*.conf"
+  
+#- pipeline.id: example
+#  path.config: "/etc/logstash/conf.d/example.conf"
+  
+- pipeline.id: snortpipeline
+  path.config: "/etc/logstash/conf.d/snort.conf"
+  
+  
+#- pipeline.id: filebeatpipeline
+#  path.config: "/etc/logstash/conf.d/example(copy).conf"
+
+- pipeline.id: modseclogspipeline
+  path.config: "/etc/logstash/conf.d/modseclogs.conf"
+  
+
+  
+#- pipeline.id: honeypotaccesslogspipeline
+#  path.config: "/etc/logstash/conf.d/honeypot_accesslogs.conf"
+  
+  
+#- pipeline.id: mainservererrorlogspipeline
+#  path.config: "/etc/logstash/conf.d/mainserver_Errorlogs.conf"
+  
+  
+#- pipeline.id: honeypoterrorlogspipeline
+#  path.config: "/etc/logstash/conf.d/honeypot_Errorlogs.conf"
+  
+#- pipeline.id: mainserveraccesslogspipeline
+#  path.config: "/etc/logstash/conf.d/mainserver_accesslogs.conf"
+  
+  
