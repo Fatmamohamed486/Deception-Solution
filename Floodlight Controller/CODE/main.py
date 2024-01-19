@@ -2,7 +2,7 @@ import http.client
 import json
 import time
 from port import extract_honeypot_port
-from extract_ips import extract_snort_ip, extract_apache_ip
+from extract_ips import extract_snort_ip, extract_Modsec_ip
 
 class StaticFlowPusher(object):
   
@@ -37,18 +37,19 @@ class StaticFlowPusher(object):
         return ret
     
 controller_ip="192.168.100.40"
-pusher = StaticFlowPusher(controller_ip)
 honeypot_ip="192.168.100.20"
+
+pusher = StaticFlowPusher(controller_ip)
 output_port= extract_honeypot_port(controller_ip,honeypot_ip)
 
   
 #alert_file_path = '/var/log/snort/alert'
-snort_logs = 'alert.txt'
-apache_logs= 'access.log'
+snort_logs = '/var/log/snort/alert'
+Modsec_logs= '/var/log/apache2/debug.log'
 last_src_ip = None
 
 snort_log_last_position = 0
-apache_log_last_position = 0
+Modsec_log_last_position = 0
 name = 1
 
 while True:
@@ -84,17 +85,17 @@ while True:
                         
             snort_log_last_position = file.tell()
             
-        with open(apache_logs,'r') as file:
+        with open(Modsec_logs,'r') as file:
             
-            file.seek(apache_log_last_position)
+            file.seek(Modsec_log_last_position)
             
             for alert in file:
             
-                apache_src_ip = extract_apache_ip(alert)
+                Modsec_src_ip = extract_Modsec_ip(alert)
                 
-                if apache_src_ip != None and apache_src_ip != controller_ip :
+                if Modsec_src_ip != None and Modsec_src_ip != controller_ip :
                     
-                    print(f"AlERT SOURCE IP : {apache_src_ip}")
+                    print(f"AlERT SOURCE IP : {Modsec_src_ip}")
                     
                     # Define the flow rule to match the alert source IP and send to LAN2
                     flow_rule = {
@@ -103,12 +104,9 @@ while True:
                     "cookie":"0",
                     "priority":"3000",
                     "eth_type": "0x800",  # IPv4
-                    "ipv4_src": apache_src_ip,
-                    #"ipv4_dst": "0.0.0.0/0",
-                    #"set_ipv4_dst":"192.168.100.20",
+                    "ipv4_src": Modsec_src_ip,
                     "active":"true",
                     "actions":f"output={output_port}"
-
                     }
                     pusher.set(flow_rule)
                     name +=1
